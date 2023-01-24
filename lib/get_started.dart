@@ -21,8 +21,8 @@ class _Get_startedState extends State<Get_started> {
             ),
           ),
           Positioned(
-            left: 50,
-            bottom: 50,
+            left: 40,
+            bottom: 60,
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home_screen(),));
