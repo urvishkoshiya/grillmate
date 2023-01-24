@@ -7,6 +7,8 @@ class Home_screen extends StatefulWidget {
 }
 
 class _Home_screenState extends State<Home_screen> {
+  bool like = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,13 +214,21 @@ class _Home_screenState extends State<Home_screen> {
               ),
             ),
           ),
+          Center(
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  like=!like;
+                });
+              },
+              icon: like?(Icon(Icons.favorite, color: Colors.red, size: 40,)):(Icon(Icons.favorite_border, color: Colors.black, size: 40,)),
+            ),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
+        onPressed: () {},
         child: Icon(Icons.share),
         elevation: 10,
       ),
@@ -231,9 +241,7 @@ class _Home_screenState extends State<Home_screen> {
           mainAxisSize: MainAxisSize.max,
           children: [
             InkWell(
-              onTap: () {
-
-              },
+              onTap: () {},
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Column(
@@ -243,16 +251,18 @@ class _Home_screenState extends State<Home_screen> {
                       Icons.home,
                       color: Colors.white,
                     ),
-                    Text("Home",style: TextStyle(fontSize: 15,color: Colors.white),)
+                    Text(
+                      "Home",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    )
                   ],
                 ),
               ),
             ),
             InkWell(
-              onTap: () {
-              },
+              onTap: () {},
               child: Padding(
-                padding: EdgeInsets.only(top: 5,bottom: 5,left: 5,right: 20),
+                padding: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 20),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -260,17 +270,18 @@ class _Home_screenState extends State<Home_screen> {
                       Icons.restaurant_menu,
                       color: Colors.white,
                     ),
-                    Text("Menu",style: TextStyle(fontSize: 15,color: Colors.white),)
+                    Text(
+                      "Menu",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    )
                   ],
                 ),
               ),
             ),
             InkWell(
-              onTap: () {
-
-              },
+              onTap: () {},
               child: Padding(
-                padding: EdgeInsets.only(top: 5,bottom: 5,left: 20,right: 5),
+                padding: EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 5),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -278,15 +289,16 @@ class _Home_screenState extends State<Home_screen> {
                       Icons.shopping_cart,
                       color: Colors.white,
                     ),
-                    Text("Cart",style: TextStyle(fontSize: 15,color: Colors.white),)
+                    Text(
+                      "Cart",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    )
                   ],
                 ),
               ),
             ),
             InkWell(
-              onTap: () {
-
-              },
+              onTap: () {},
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Column(
@@ -296,7 +308,10 @@ class _Home_screenState extends State<Home_screen> {
                       Icons.account_circle_outlined,
                       color: Colors.white,
                     ),
-                    Text("Profile",style: TextStyle(fontSize: 15,color: Colors.white),)
+                    Text(
+                      "Profile",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    )
                   ],
                 ),
               ),
