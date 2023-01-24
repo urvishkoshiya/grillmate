@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import 'get_started.dart';
 
 void main() {
   runApp(
@@ -10,7 +10,7 @@ void main() {
       home: MyApp(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.green,
       ),
     ),
   );
@@ -30,14 +30,14 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Timer(Duration(seconds: 1), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home_screen(),));
+          context, MaterialPageRoute(builder: (context) => Get_started(),));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.green,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

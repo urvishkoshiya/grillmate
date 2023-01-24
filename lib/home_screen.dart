@@ -225,7 +225,7 @@ class _Home_screenState extends State<Home_screen> {
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5.0,
         shape: CircularNotchedRectangle(),
-        color: Colors.red,
+        color: Colors.green,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
@@ -250,7 +250,6 @@ class _Home_screenState extends State<Home_screen> {
             ),
             InkWell(
               onTap: () {
-
               },
               child: Padding(
                 padding: EdgeInsets.only(top: 5,bottom: 5,left: 5,right: 20),
