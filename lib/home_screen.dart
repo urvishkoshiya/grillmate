@@ -7,6 +7,34 @@ class Home_screen extends StatefulWidget {
 }
 
 class _Home_screenState extends State<Home_screen> {
+  List<Map> data = [
+    {
+      "name": "Pizza",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+    {
+      "name": "Peppy Paneer",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+    {
+      "name": "Peppy Paneer",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+    {
+      "name": "Peppy Paneer",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+    {
+      "name": "Peppy Paneer",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+    {
+      "name": "Peppy Paneer",
+      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    },
+
+  ];
+
   bool like = false;
 
   @override
@@ -214,14 +242,58 @@ class _Home_screenState extends State<Home_screen> {
               ),
             ),
           ),
-          Center(
-            child: IconButton(
-              onPressed: () {
-                setState(() {
-                  like=!like;
-                });
-              },
-              icon: like?(Icon(Icons.favorite, color: Colors.red, size: 40,)):(Icon(Icons.favorite_border, color: Colors.black, size: 40,)),
+          // Center(
+          //   child: IconButton(
+          //     onPressed: () {
+          //       setState(() {
+          //         like=!like;
+          //       });
+          //     },
+          //     icon: like?(Icon(Icons.favorite, color: Colors.red, size: 40,)):(Icon(Icons.favorite_border, color: Colors.black, size: 40,)),
+          //   ),
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Explore Menu",
+                  style: TextStyle(fontFamily: "Custom", fontSize: 20),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "View all",
+                    style: TextStyle(fontFamily: "Custom", fontSize: 15),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(data[index]["image"]),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Text(data[index]["name"],style: TextStyle(fontFamily: "Custom", fontSize: 13),)
+                ],
+              ),
+              itemCount: data.length,
             ),
           ),
         ],
