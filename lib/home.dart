@@ -2,44 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:grillmate/Menu.dart';
 
-
 class Home extends StatefulWidget {
-
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-
-  List<Map> data = [
-    {
-      "name": "Pizza",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-  ];
-
-  bool like = false;
-
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,7 @@ import 'package:grillmate/Menu.dart';
 import 'package:grillmate/cart.dart';
 import 'package:grillmate/home.dart';
 import 'package:grillmate/profile.dart';
+import 'package:grillmate/sign_in.dart';
 
 class Home_screen extends StatefulWidget {
   @override
@@ -135,7 +136,9 @@ class _Home_screenState extends State<Home_screen> {
               color: Colors.black,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sign_in(),),);
+              },
               child: ListTile(
                 leading: Icon(Icons.power_settings_new, color: Colors.black),
                 title: Text(

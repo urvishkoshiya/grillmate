@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grillmate/home_screen.dart';
 import 'package:grillmate/sign_in.dart';
 
 class Sign_up extends StatefulWidget {
@@ -66,6 +67,7 @@ class _Sign_upState extends State<Sign_up> {
             SizedBox(
               height: 20,
             ),
+
             Container(
               width: 350,
               child: TextFormField(
@@ -296,7 +298,7 @@ class _Sign_upState extends State<Sign_up> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Sign_in(),
+                    builder: (context) => Home_screen(),
                   ),
                 );
               },
