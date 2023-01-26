@@ -132,12 +132,41 @@ class _Sign_inState extends State<Sign_in> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Home_screen(),
-                  ),
-                );
+                if (email.text.isEmpty && password.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Please Fill The Required Fields."),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                } else if (email.text.isEmpty && password.text.isNotEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Enter the Username."),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                } else if (email.text.isNotEmpty && password.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Enter the Password"),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                } else {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Home_screen(),
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Sign In Successfully."),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
               },
               child: Container(
                 width: 300,
