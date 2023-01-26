@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:grillmate/Menu.dart';
+import 'package:grillmate/cart.dart';
+import 'package:grillmate/home.dart';
+import 'package:grillmate/profile.dart';
 
 class Home_screen extends StatefulWidget {
   @override
@@ -7,35 +10,14 @@ class Home_screen extends StatefulWidget {
 }
 
 class _Home_screenState extends State<Home_screen> {
-  List<Map> data = [
-    {
-      "name": "Pizza",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-    {
-      "name": "Peppy Paneer",
-      "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
-    },
-
+  List<Widget> page = [
+    Home(),
+    Menu(),
+    Cart(),
+    Profile(),
   ];
 
-  bool like = false;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -183,214 +165,24 @@ class _Home_screenState extends State<Home_screen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 5),
-            child: CarouselSlider(
-              items: [
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/banner1.png"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/banner2.png"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/banner3.png"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/banner4.png"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ],
-              options: CarouselOptions(
-                height: 220,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 300),
-                viewportFraction: 0.9,
-              ),
-            ),
-          ),
-          // Center(
-          //   child: IconButton(
-          //     onPressed: () {
-          //       setState(() {
-          //         like=!like;
-          //       });
-          //     },
-          //     icon: like?(Icon(Icons.favorite, color: Colors.red, size: 40,)):(Icon(Icons.favorite_border, color: Colors.black, size: 40,)),
-          //   ),
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Explore Menu",
-                  style: TextStyle(fontFamily: "Custom", fontSize: 20),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "View all",
-                    style: TextStyle(fontFamily: "Custom", fontSize: 15),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              itemBuilder: (context, index) => Column(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(data[index]["image"]),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                  Text(data[index]["name"],style: TextStyle(fontFamily: "Custom", fontSize: 13),)
-                ],
-              ),
-              itemCount: data.length,
-            ),
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.share),
-        elevation: 10,
-      ),
-      bottomNavigationBar: BottomAppBar(
-        notchMargin: 5.0,
-        shape: CircularNotchedRectangle(),
-        color: Colors.green,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Home",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 20),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.restaurant_menu,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Menu",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 5),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.shopping_cart,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Cart",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.account_circle_outlined,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Profile",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      body:page[index],
+      bottomNavigationBar: BottomNavigationBar(
+        iconSize: 25,
+        selectedIconTheme: IconThemeData(size: 30),
+        showUnselectedLabels: true,
+        backgroundColor: Colors.green,
+        currentIndex:index,
+        onTap: (value) {
+          setState(() {
+            index=value;
+          });
+        },
+        items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home",backgroundColor: Colors.green),
+        BottomNavigationBarItem(icon: Icon(Icons.restaurant_menu),label: "Menu",backgroundColor: Colors.green),
+        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: "Cart",backgroundColor: Colors.green),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined),label: "Profile",backgroundColor: Colors.green),
+      ],),
     );
   }
 }

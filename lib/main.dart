@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 1), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Get_started(),));
     });
@@ -43,9 +43,9 @@ class _MyAppState extends State<MyApp> {
         children: [
           Center(
             child: Container(
-              width: 380,
-              height: 380,
-              child: Image.asset("assets/images/grillmate.png"),
+              width: 400,
+              height: 400,
+              child: Image.asset("assets/images/grillmate1.png"),
             ),
           ),
         ],

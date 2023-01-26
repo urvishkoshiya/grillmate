@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grillmate/home_screen.dart';
+import 'package:grillmate/sign_in.dart';
 
 class Get_started extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _Get_startedState extends State<Get_started> {
             bottom: 60,
             child: InkWell(
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home_screen(),));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sign_in(),));
               },
               child: Container(
                 width: 200,
