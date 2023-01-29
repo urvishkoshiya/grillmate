@@ -155,9 +155,15 @@ class _Sign_upState extends State<Sign_up> {
                         firstDate: DateTime(1970),
                         lastDate: DateTime.now(),
                       );
-                      setState(() {
-                        dob.text = date.toString();
-                      });
+                      if(date==null){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please select the date"),),);
+                      }
+                      else
+                        {
+                          setState(() {
+                            dob.text = date.toString();
+                          },);
+                        }
                     },
                     child: Icon(
                       Icons.date_range_outlined,

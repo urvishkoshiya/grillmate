@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grillmate/home_screen.dart';
 import 'package:grillmate/sign_up.dart';
+
+import 'home_screen.dart';
 
 class Sign_in extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _Sign_inState extends State<Sign_in> {
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {

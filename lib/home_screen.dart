@@ -46,7 +46,9 @@ class _Home_screenState extends State<Home_screen> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: ListTile(
                 leading: Icon(Icons.home, color: Colors.black),
                 title: Text(
@@ -188,4 +190,5 @@ class _Home_screenState extends State<Home_screen> {
       ],),
     );
   }
+  
 }
