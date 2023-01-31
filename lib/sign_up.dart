@@ -1,3 +1,5 @@
+import 'package:date_format/date_format.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:grillmate/home_screen.dart';
 import 'package:grillmate/sign_in.dart';
@@ -22,6 +24,9 @@ class _Sign_upState extends State<Sign_up> {
 
   bool eye = true;
 
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  String selectedKey="";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +48,8 @@ class _Sign_upState extends State<Sign_up> {
                   ),
                 ),
                 Container(
-                  width: 170,
-                  height: 170,
+                  width: 160,
+                  height: 160,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/grillmate1.png"),
@@ -156,12 +161,12 @@ class _Sign_upState extends State<Sign_up> {
                         lastDate: DateTime.now(),
                       );
                       if(date==null){
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please select the date"),),);
+                            dob.text="";
                       }
                       else
                         {
                           setState(() {
-                            dob.text = date.toString();
+                            dob.text = formatDate(date, [dd,'/',mm,'/',yyyy]);
                           },);
                         }
                     },
@@ -304,9 +309,21 @@ class _Sign_upState extends State<Sign_up> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Home_screen(),
+                    builder: (context) => Sign_in(),
                   ),
                 );
+                String? key = database.ref('User').push().key;
+                database.ref('User').child(key!).set({
+                  'username': username.text,
+                  'email': email.text,
+                  'mobile_no':mobile_no.text,
+                  'dob':dob.text,
+                  'password':password.text,
+                  'hobbies':hobbies.text,
+                  'gender':gender.toString(),
+                  'key': key,
+                });
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign Up Successfully.")),);
               },
               child: Container(
                 width: 300,

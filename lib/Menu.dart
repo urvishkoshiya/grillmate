@@ -13,7 +13,6 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-        Center(),
-    );
+      Center(child: Text("Menu",style: TextStyle(fontFamily: "Custom",fontSize: 30),)),    );
   }
 }

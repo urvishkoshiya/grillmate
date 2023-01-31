@@ -6,6 +6,11 @@ import 'package:grillmate/profile.dart';
 import 'package:grillmate/sign_in.dart';
 
 class Home_screen extends StatefulWidget {
+
+  var email="";
+
+  Home_screen(this.email);
+
   @override
   State<Home_screen> createState() => _Home_screenState();
 }
@@ -35,14 +40,16 @@ class _Home_screenState extends State<Home_screen> {
             UserAccountsDrawerHeader(
               accountName: Text(
                 "Urvish Koshiya",
-                style: TextStyle(fontFamily: "Custom"),
+                style: TextStyle(fontFamily: "Custom",fontSize: 20),
               ),
               accountEmail: Text(
-                "urvishkoshiya11@gmail.com",
+                widget.email.toString(),
                 style: TextStyle(fontFamily: "Custom"),
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/circle_avatar.jpg"),
+                child: Text(widget.email[0].toUpperCase(),style: TextStyle(fontFamily: "Custom",fontSize: 40),),
+                // backgroundImage: AssetImage("assets/images/icon.png"),
+                backgroundColor: Colors.white,
               ),
             ),
             InkWell(
@@ -63,7 +70,9 @@ class _Home_screenState extends State<Home_screen> {
               color: Colors.black,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(),),);
+              },
               child: ListTile(
                 leading: Icon(Icons.account_circle, color: Colors.black),
                 title: Text(
@@ -78,7 +87,9 @@ class _Home_screenState extends State<Home_screen> {
               color: Colors.black,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Menu(),),);
+              },
               child: ListTile(
                 leading: Icon(Icons.restaurant_menu, color: Colors.black),
                 title: Text(
@@ -87,28 +98,30 @@ class _Home_screenState extends State<Home_screen> {
                 ),
               ),
             ),
+            // Divider(
+            //   height: 1,
+            //   thickness: 1,
+            //   color: Colors.black,
+            // ),
+            // InkWell(
+            //   onTap: () {},
+            //   child: ListTile(
+            //     leading: Icon(Icons.history, color: Colors.black),
+            //     title: Text(
+            //       "Order History",
+            //       style: TextStyle(fontFamily: "Custom"),
+            //     ),
+            //   ),
+            // ),
             Divider(
               height: 1,
               thickness: 1,
               color: Colors.black,
             ),
             InkWell(
-              onTap: () {},
-              child: ListTile(
-                leading: Icon(Icons.history, color: Colors.black),
-                title: Text(
-                  "Order History",
-                  style: TextStyle(fontFamily: "Custom"),
-                ),
-              ),
-            ),
-            Divider(
-              height: 1,
-              thickness: 1,
-              color: Colors.black,
-            ),
-            InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Cart(),),);
+              },
               child: ListTile(
                 leading: Icon(Icons.shopping_cart, color: Colors.black),
                 title: Text(
@@ -117,21 +130,21 @@ class _Home_screenState extends State<Home_screen> {
                 ),
               ),
             ),
-            Divider(
-              height: 1,
-              thickness: 1,
-              color: Colors.black,
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                leading: Icon(Icons.headset_mic_outlined, color: Colors.black),
-                title: Text(
-                  "Contact Us",
-                  style: TextStyle(fontFamily: "Custom"),
-                ),
-              ),
-            ),
+            // Divider(
+            //   height: 1,
+            //   thickness: 1,
+            //   color: Colors.black,
+            // ),
+            // InkWell(
+            //   onTap: () {},
+            //   child: ListTile(
+            //     leading: Icon(Icons.headset_mic_outlined, color: Colors.black),
+            //     title: Text(
+            //       "Contact Us",
+            //       style: TextStyle(fontFamily: "Custom"),
+            //     ),
+            //   ),
+            // ),
             Divider(
               height: 1,
               thickness: 1,
@@ -150,7 +163,7 @@ class _Home_screenState extends State<Home_screen> {
               ),
             ),
             SizedBox(
-              height: 150,
+              height: 280,
             ),
             Center(
               child: Text(

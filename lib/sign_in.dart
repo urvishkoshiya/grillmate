@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:grillmate/sign_up.dart';
 
@@ -14,6 +15,10 @@ class _Sign_inState extends State<Sign_in> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  String selectedKey="";
+
+  List<Map> data=[];
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +41,8 @@ class _Sign_inState extends State<Sign_in> {
                   ),
                 ),
                 Container(
-                  width: 170,
-                  height: 170,
+                  width: 160,
+                  height: 160,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/grillmate1.png"),
@@ -66,9 +71,9 @@ class _Sign_inState extends State<Sign_in> {
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: "Username Or Email",
+                  labelText: "Email",
                   labelStyle: TextStyle(color: Colors.green),
-                  hintText: "Enter Username Or Email",
+                  hintText: "Enter Email",
                   prefixIcon: Icon(
                     Icons.account_circle,
                     color: Colors.green,
@@ -117,20 +122,22 @@ class _Sign_inState extends State<Sign_in> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 200,
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Forgot Password ?",
-                  style: TextStyle(fontFamily: "Custom"),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.only(
+            //     left: 200,
+            //   ),
+            //   child: TextButton(
+            //     onPressed: () {
+            //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Unable to Forget Password.")),);
+            //     },
+            //     child: Text(
+            //       "Forgot Password ?",
+            //       style: TextStyle(fontFamily: "Custom"),
+            //     ),
+            //   ),
+            // ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             InkWell(
               onTap: () {
@@ -156,20 +163,20 @@ class _Sign_inState extends State<Sign_in> {
                     ),
                   );
                 } else {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Home_screen(),
-                    ),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("Sign In Successfully."),
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
-                }
-              },
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Home_screen(email.text),
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text("Sign In Successfully."),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        }
+                },
               child: Container(
                 width: 300,
                 height: 40,

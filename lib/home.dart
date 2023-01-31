@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:grillmate/pizza.dart';
-import 'package:grillmate/sandwich.dart';
-import 'package:grillmate/waffles.dart';
-import 'Dosa.dart';
-import 'burger.dart';
-import 'coffee.dart';
-import 'cold_drinks.dart';
 import 'description.dart';
-import 'french_fries.dart';
+
 
 class Home extends StatefulWidget {
   @override

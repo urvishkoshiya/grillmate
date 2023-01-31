@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "662184376782",
+    "project_id": "grillmate-c38c8",
+    "storage_bucket": "grillmate-c38c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662184376782:android:c01c11232ae78b8f05539f",
+        "android_client_info": {
+          "package_name": "com.example.grillmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662184376782-r2misu5gnlokkea2gsa7g436rcjd6em6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw_dQuC3dhYdK2MLv_80CnoWGwyAoVwWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662184376782-r2misu5gnlokkea2gsa7g436rcjd6em6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

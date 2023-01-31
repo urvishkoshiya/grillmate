@@ -10,7 +10,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Profile",style: TextStyle(fontFamily: "Custom",fontSize: 30),)),
+      body: Center(child: Text("Profile",style: TextStyle(fontFamily: "Custom",fontSize: 30),),),
     );
   }
 }
